@@ -11,6 +11,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 import productRoutes from './routes/productRoutes.js';
+import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 // Connect to MongoDB before the server accepts incoming API requests.
 await connectDB();
@@ -38,6 +39,12 @@ app.use('/api/products', productRoutes);
 
 // Cart routes are private and are protected inside routes/cartRoutes.js.
 app.use('/api/cart', cartRoutes);
+
+// notFound turns unmatched routes into JSON 404 errors instead of default HTML responses.
+app.use(notFound);
+
+// errorHandler must be registered after all routes so it can catch errors passed with next(error).
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
