@@ -7,6 +7,10 @@ dotenv.config();
 
 import express from 'express';
 import cors from 'cors';
+import connectDB from './config/db.js';
+
+// Connect to MongoDB before the server accepts incoming API requests.
+await connectDB();
 
 const app = express();
 
