@@ -218,3 +218,65 @@ Store them under:
 ```text
 screenshots/mongodb/
 ```
+
+## Git Commit Strategy
+
+The assignment asks for at least 20 meaningful commits. Commit after each logical change using commands like these:
+
+```bash
+git add .
+git commit -m "chore: initialize Node.js project with ES modules"
+git add .
+git commit -m "chore: install Express MongoDB auth and dev dependencies"
+git add .
+git commit -m "feat: connect to MongoDB with Mongoose"
+git add .
+git commit -m "feat: create Product model with stock validation"
+git add .
+git commit -m "feat: create User model with password comparison"
+git add .
+git commit -m "feat: create Cart model with user-owned items"
+git add .
+git commit -m "feat: implement JWT authentication middleware"
+git add .
+git commit -m "feat: implement register and login controllers"
+git add .
+git commit -m "feat: add authentication routes"
+git add .
+git commit -m "feat: add product browsing endpoints"
+git add .
+git commit -m "feat: implement cart controller operations"
+git add .
+git commit -m "feat: protect and mount cart routes"
+git add .
+git commit -m "feat: add global JSON error handling"
+git add .
+git commit -m "feat: add product seed script"
+git add .
+git commit -m "docs: add project overview and setup instructions"
+git add .
+git commit -m "docs: add API endpoint reference"
+git add .
+git commit -m "docs: add ThunderClient testing guide"
+git add .
+git commit -m "docs: add Git commit and submission guidance"
+git add .
+git commit -m "test: add screenshot folders for API evidence"
+git add .
+git commit -m "chore: verify ES module syntax and final project state"
+```
+
+## Submission Checklist
+
+- `npm run dev` starts the API without errors after MongoDB is configured.
+- `npm run seed` inserts sample products.
+- No `require` or `module.exports` syntax is used because this project uses ES Modules.
+- Product, User, and Cart models include required validation.
+- Registration hashes passwords with bcrypt before saving.
+- Login returns a JWT token and user information.
+- Cart routes return `401` without a valid Bearer token.
+- Cart operations only use the logged-in user's cart.
+- Controllers use `try/catch` and pass unexpected errors to the global error handler.
+- `node_modules` and `.env` are excluded by `.gitignore`.
+- ThunderClient screenshots and MongoDB screenshots are included before final submission.
+- The GitHub repository link is added here before submission: `paste_your_public_github_repository_url_here`.
