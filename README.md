@@ -127,3 +127,94 @@ Update cart quantity:
   "quantity": 5
 }
 ```
+
+## API Testing with ThunderClient
+
+Use ThunderClient in VS Code and test in this order. Save screenshots in a `screenshots/` folder so the submission proves each route was tested.
+
+1. Health check: `GET http://localhost:5000/`
+   Expected: `200` with a running API message.
+2. Register success: `POST http://localhost:5000/api/auth/register`
+   Body: `{ "username": "testuser", "email": "test@example.com", "password": "test123" }`
+   Expected: `201` with `token` and `user`.
+3. Register duplicate: repeat the previous request.
+   Expected: `409`.
+4. Register missing fields: `POST /api/auth/register`
+   Body: `{ "email": "test@example.com" }`
+   Expected: `400`.
+5. Login success: `POST http://localhost:5000/api/auth/login`
+   Body: `{ "email": "test@example.com", "password": "test123" }`
+   Expected: `200` with `token`. Copy the token for cart tests.
+6. Login wrong password:
+   Body: `{ "email": "test@example.com", "password": "wrong123" }`
+   Expected: `401`.
+7. Get all products: `GET http://localhost:5000/api/products`
+   Expected: `200` with a `products` array. Copy one product `_id`.
+8. Get product by valid id: `GET http://localhost:5000/api/products/<product_id>`
+   Expected: `200` with one product.
+9. Get product by invalid id: `GET http://localhost:5000/api/products/invalidid123`
+   Expected: `400`.
+10. Get product by missing but valid id: `GET http://localhost:5000/api/products/000000000000000000000000`
+    Expected: `404`.
+11. Add to cart without token: `POST http://localhost:5000/api/cart`
+    Expected: `401`.
+12. Add to cart with token: `POST http://localhost:5000/api/cart`
+    Header: `Authorization: Bearer <token>`
+    Body: `{ "productId": "<product_id>", "quantity": 2 }`
+    Expected: `201` with cart.
+13. Add invalid product to cart:
+    Body: `{ "productId": "000000000000000000000000", "quantity": 1 }`
+    Expected: `400`.
+14. Add invalid quantity:
+    Body: `{ "productId": "<product_id>", "quantity": 0 }`
+    Expected: `400`.
+15. Update cart quantity: `PUT http://localhost:5000/api/cart/<product_id>`
+    Header: `Authorization: Bearer <token>`
+    Body: `{ "quantity": 5 }`
+    Expected: `200`.
+16. Update invalid quantity:
+    Body: `{ "quantity": -1 }`
+    Expected: `400`.
+17. Delete cart item: `DELETE http://localhost:5000/api/cart/<product_id>`
+    Header: `Authorization: Bearer <token>`
+    Expected: `200`.
+18. Delete item not in cart:
+    Repeat the previous delete request.
+    Expected: `404`.
+
+Recommended screenshot names:
+
+```text
+screenshots/test-01-health-check.png
+screenshots/test-02-register-success.png
+screenshots/test-03-register-duplicate.png
+screenshots/test-04-register-missing-fields.png
+screenshots/test-05-login-success.png
+screenshots/test-06-login-wrong-password.png
+screenshots/test-07-get-products.png
+screenshots/test-08-get-product-by-id.png
+screenshots/test-09-invalid-product-id.png
+screenshots/test-10-product-not-found.png
+screenshots/test-11-cart-without-token.png
+screenshots/test-12-cart-add-success.png
+screenshots/test-13-cart-invalid-product.png
+screenshots/test-14-cart-invalid-quantity.png
+screenshots/test-15-cart-update-success.png
+screenshots/test-16-cart-update-invalid-quantity.png
+screenshots/test-17-cart-delete-success.png
+screenshots/test-18-cart-delete-not-found.png
+```
+
+## MongoDB Screenshots
+
+After testing, capture MongoDB Compass or Atlas screenshots showing:
+
+- `products` collection with seeded product documents.
+- `users` collection with the registered test user.
+- `carts` collection with the cart document created during cart tests.
+
+Store them under:
+
+```text
+screenshots/mongodb/
+```
