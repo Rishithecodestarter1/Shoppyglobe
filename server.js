@@ -8,6 +8,7 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
+import authRoutes from './routes/authRoutes.js';
 
 // Connect to MongoDB before the server accepts incoming API requests.
 await connectDB();
@@ -26,6 +27,9 @@ app.get('/', (req, res) => {
     message: 'ShoppyGlobe API is running. Use /api/products to view products.',
   });
 });
+
+// Auth routes handle registering and logging in users.
+app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
