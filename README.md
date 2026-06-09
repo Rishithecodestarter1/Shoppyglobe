@@ -263,7 +263,7 @@ git commit -m "docs: add Git commit and submission guidance"
 git add .
 git commit -m "test: add screenshot folders for API evidence"
 git add .
-git commit -m "chore: verify ES module syntax and final project state"
+git commit -m "chore: add environment variable example"
 ```
 
 ## Submission Checklist
