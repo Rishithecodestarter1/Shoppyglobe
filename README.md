@@ -66,3 +66,64 @@ The API base URL is:
 ```text
 http://localhost:5000/api
 ```
+
+## Authentication
+
+Registration and login return a JWT token. Cart routes require this token in the request header:
+
+```text
+Authorization: Bearer your_token_here
+```
+
+The token identifies the logged-in user, so each cart request only reads or changes that user's own cart.
+
+## API Endpoint Reference
+
+| Method | Route | Auth Required | Description |
+| --- | --- | --- | --- |
+| GET | `/` | No | Server health check. |
+| GET | `/api/products` | No | Fetch all products. |
+| GET | `/api/products/:id` | No | Fetch one product by MongoDB id. |
+| POST | `/api/auth/register` | No | Register a new user and receive a JWT. |
+| POST | `/api/auth/login` | No | Login and receive a JWT. |
+| POST | `/api/cart` | Yes | Add a product to the logged-in user's cart. |
+| PUT | `/api/cart/:productId` | Yes | Update the quantity of a cart item. |
+| DELETE | `/api/cart/:productId` | Yes | Remove a product from the cart. |
+
+## Request Body Examples
+
+Register:
+
+```json
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "test123"
+}
+```
+
+Login:
+
+```json
+{
+  "email": "test@example.com",
+  "password": "test123"
+}
+```
+
+Add to cart:
+
+```json
+{
+  "productId": "paste_product_id_here",
+  "quantity": 2
+}
+```
+
+Update cart quantity:
+
+```json
+{
+  "quantity": 5
+}
+```
