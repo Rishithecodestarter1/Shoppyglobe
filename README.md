@@ -35,7 +35,7 @@ cd shoppyglobe-backend
 npm install
 ```
 
-4. Create a `.env` file in the project root:
+4. Copy `.env.example` to `.env`, then update the values if needed:
 
 ```env
 PORT=5000
