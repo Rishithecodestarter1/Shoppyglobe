@@ -299,4 +299,4 @@ git commit -m "chore: add environment variable example"
 - Controllers use `try/catch` and pass unexpected errors to the global error handler.
 - `node_modules` and `.env` are excluded by `.gitignore`.
 - ThunderClient screenshots and MongoDB screenshots are included before final submission.
-- The GitHub repository link is added here before submission: `paste_your_public_github_repository_url_here`.
+- GitHub repository: `https://github.com/Rishithecodestarter1/Shoppyglobe`.
