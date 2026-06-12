@@ -67,6 +67,16 @@ The API base URL is:
 http://localhost:5000/api
 ```
 
+## Final Submission Folder
+
+Submit this folder as the completed backend assignment:
+
+```text
+shoppyglobe-backend
+```
+
+It contains the API source code, setup documentation, seed script, ThunderClient evidence screenshots, `TEST_REPORT.md`, and the supporting JWT secret utility under `tools/jwt-secret-utility`.
+
 ## Authentication
 
 Registration and login return a JWT token. Cart routes require this token in the request header:
