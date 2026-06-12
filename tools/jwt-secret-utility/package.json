@@ -1,0 +1,27 @@
+{
+  "name": "jwt-secret-utility",
+  "version": "1.0.0",
+  "description": "A secure Node.js utility for generating, validating, and loading JWT secret keys.",
+  "main": "load-secret.js",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate-secret.js",
+    "verify": "node verify-secret.js",
+    "demo": "node app.js"
+  },
+  "keywords": [
+    "jwt",
+    "secret",
+    "crypto",
+    "dotenv",
+    "security"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}

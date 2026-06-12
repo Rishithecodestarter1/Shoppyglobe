@@ -219,6 +219,26 @@ Store them under:
 screenshots/mongodb/
 ```
 
+## JWT Secret Utility
+
+This submission also includes a supporting JWT secret helper at:
+
+```text
+tools/jwt-secret-utility
+```
+
+Use it when you need to generate, verify, or demo-load a strong JWT secret for `.env`:
+
+```bash
+cd tools/jwt-secret-utility
+npm install
+npm run generate
+npm run verify
+npm run demo
+```
+
+The copied utility intentionally does not include its local `.env`, `node_modules`, or nested `.git` folder. Generated secrets should stay local and must not be committed to GitHub.
+
 ## Git Commit Strategy
 
 The assignment asks for at least 20 meaningful commits. Commit after each logical change using commands like these:
