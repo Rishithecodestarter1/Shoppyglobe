@@ -2,6 +2,10 @@
 
 ShoppyGlobe Backend API is a Node.js and Express REST API for an e-commerce application. It connects to MongoDB with Mongoose, stores users and carts, exposes product browsing endpoints, and protects cart operations with JWT authentication.
 
+## GitHub repository:
+
+`https://github.com/Rishithecodestarter1/Shoppyglobe`
+
 ## Technology Stack
 
 - Node.js
@@ -89,16 +93,16 @@ The token identifies the logged-in user, so each cart request only reads or chan
 
 ## API Endpoint Reference
 
-| Method | Route | Auth Required | Description |
-| --- | --- | --- | --- |
-| GET | `/` | No | Server health check. |
-| GET | `/api/products` | No | Fetch all products. |
-| GET | `/api/products/:id` | No | Fetch one product by MongoDB id. |
-| POST | `/api/auth/register` | No | Register a new user and receive a JWT. |
-| POST | `/api/auth/login` | No | Login and receive a JWT. |
-| POST | `/api/cart` | Yes | Add a product to the logged-in user's cart. |
-| PUT | `/api/cart/:productId` | Yes | Update the quantity of a cart item. |
-| DELETE | `/api/cart/:productId` | Yes | Remove a product from the cart. |
+| Method | Route                  | Auth Required | Description                                 |
+| ------ | ---------------------- | ------------- | ------------------------------------------- |
+| GET    | `/`                    | No            | Server health check.                        |
+| GET    | `/api/products`        | No            | Fetch all products.                         |
+| GET    | `/api/products/:id`    | No            | Fetch one product by MongoDB id.            |
+| POST   | `/api/auth/register`   | No            | Register a new user and receive a JWT.      |
+| POST   | `/api/auth/login`      | No            | Login and receive a JWT.                    |
+| POST   | `/api/cart`            | Yes           | Add a product to the logged-in user's cart. |
+| PUT    | `/api/cart/:productId` | Yes           | Update the quantity of a cart item.         |
+| DELETE | `/api/cart/:productId` | Yes           | Remove a product from the cart.             |
 
 ## Request Body Examples
 
@@ -319,4 +323,3 @@ git commit -m "chore: add environment variable example"
 - Controllers use `try/catch` and pass unexpected errors to the global error handler.
 - `node_modules` and `.env` are excluded by `.gitignore`.
 - ThunderClient screenshots and MongoDB screenshots are included before final submission.
-- GitHub repository: `https://github.com/Rishithecodestarter1/Shoppyglobe`.
