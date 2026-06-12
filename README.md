@@ -229,6 +229,16 @@ Store them under:
 screenshots/mongodb/
 ```
 
+## Final Evidence Files
+
+The final API evidence is stored in:
+
+```text
+screenshots/
+```
+
+The folder should contain exactly 16 screenshots named `test01.png` through `test15.png`, plus `test16_logger.png`. The test summary is documented in `TEST_REPORT.md`.
+
 ## JWT Secret Utility
 
 This submission also includes a supporting JWT secret helper at:
